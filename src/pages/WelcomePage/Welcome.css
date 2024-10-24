@@ -2,6 +2,10 @@
     font-family: "Space Grotesk", sans-serif;;
 }
 
+body {
+    overflow: hidden;
+}
+
 .main {
     overflow: hidden;
     margin-top: -6rem;
@@ -50,6 +54,7 @@
     font-weight: 700;
     padding: 1rem 1.5rem;
     transition: box-shadow 0.4s;
+    margin: 10px;
 }
 
 .home-button:hover{

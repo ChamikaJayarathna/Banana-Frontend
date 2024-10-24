@@ -39,8 +39,8 @@ const Welcome = () => {
   
     gsap.fromTo(
       imgRed04.current,
-      { y: -100, scale: 1.3 },
-      { y: 0, scale: 1, duration: 5, repeat: -1, yoyo: true }
+      { y: -100, scale: 1 },
+      { y: 0, scale: 0.8, duration: 5, repeat: -1, yoyo: true }
     );
   
     gsap.fromTo(
@@ -63,6 +63,7 @@ const Welcome = () => {
               you need to come back to earth.
             </p>
             <Link to={'/login'} className="home-button">Login</Link>
+            <Link to={'/signup'} className="home-button">SignUp</Link>
           </div>
 
           <div className="home-images">
@@ -83,7 +84,7 @@ const Welcome = () => {
               <img ref={imgRed04} src={Monkey03} alt="Monkey-image" className='home-img-4'/>
             </div>
 
-            <img ref={imgRed05} src={Banana02} alt="Banana-image" className='home-img-5'/>
+            {/* <img ref={imgRed05} src={Banana02} alt="Banana-image" className='home-img-5'/> */}
 
           </div>
 
