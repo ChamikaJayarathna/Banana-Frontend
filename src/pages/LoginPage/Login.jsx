@@ -3,6 +3,7 @@ import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
+import { storeInSession } from '../../components/Session';
 
 const Login = () => {
 
@@ -19,8 +20,9 @@ const Login = () => {
       });
 
       if(response.data){
+        storeInSession('user', JSON.stringify(response.data));
         toast.success('Logged in successfully');
-        navigate('/')
+        navigate('/game-play')
       }
 
     } catch (error) {
