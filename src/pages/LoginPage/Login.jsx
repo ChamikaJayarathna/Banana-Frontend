@@ -21,7 +21,7 @@ const Login = () => {
 
       if(response.data){
         storeInSession('user', JSON.stringify(response.data));
-        toast.success('Logged in successfully');
+        // toast.success('Logged in successfully');
         navigate('/game-play')
       }
 
