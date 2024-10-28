@@ -1,75 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './SignUp.css';
-import { useNavigate } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
-import axios from 'axios';
+import Monkey from '../../assets/momkey02.png';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
 
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const navigate = useNavigate();
-
-  const userAuthServer = async () => {
-    try {
-      const response = await axios.post(import.meta.env.VITE_SERVER_DOMAIN + '/api/signup', {
-        username,
-        email,
-        password,
-      });
-
-      if(response.data){
-        toast.success('Account created successfully');
-        navigate('/login');
-      }
-
-    } catch (err) {
-      toast.error(err.response?.data?.error || "An error occurred");
-    }
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
-
-    if(username.length < 5){
-      return toast.error("Username must be at least 5 letters long")
-    }
-
-    if(!email.length){
-      return toast.error("Enter Email")
-    }
-
-    if(!emailRegex.test(email)){
-      return toast.error("Invalid Email")
-    }
-
-    if(!passwordRegex.test(password)){
-      return toast.error("Password should be 6 to 20 characters long with a numeric, 1 lowercase and 1 uppercase letters")
-    }
-
-    userAuthServer();
-
-  }
-
-
   return (
-    <div className="signup-container">
-      <Toaster/>
-      <form className="signup-form" onSubmit={handleSubmit}>
-        <h1>Join us today</h1>
-        <div className="input-group">
-          <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)}/>
-          <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-          <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+    <>
+    <div className="signup-wrapper">
+      <img src={Monkey} alt="image" className='mascot'/>
+      <div className="signup-container">
+        <div className="header-section">
+          <h2>Sign Up</h2>
+          <span className='login-link'>Already have an account? <Link to="/login" className='login-link'>Login</Link></span>
         </div>
-        <button type="submit" className="signup-button">Sign Up</button>
-      </form>
+        <form action="">
+          <div className="input-group" style={{marginTop: "1.5rem"}}>
+            <label className='input-label' style={{ backgroundColor: '#C1DDE5' }}>Username</label>
+            <input type="text" placeholder='Enter your username' className='styled-input'/>
+          </div>
+          <div className="input-group">
+            <label className='input-label' style={{ backgroundColor: '#C1DDE5' }}>E-mail Address</label>
+            <input type="email" placeholder='Enter your email' className='styled-input'/>
+          </div>
+          <div className="input-group">
+            <label className='input-label' style={{ backgroundColor: '#BBD9E0' }}>Password</label>
+            <input type="password" placeholder='Enter your password'className='styled-input'/>
+          </div>
+          <button type='submit' className='signup-btn'>Sign Up</button>
+        </form>
+      </div>
     </div>
+    </>
+    
   );
 }
 
