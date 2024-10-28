@@ -1,6 +1,7 @@
 import React from 'react';
 import './Login.css';
 import Monkey from '../../assets/momkey02.png';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -21,6 +22,9 @@ const Login = () => {
           </div>
           <button type='submit' className='login-btn'>Login</button>
         </form>
+        <div className="signup-prompt">
+          Don't have an account? <Link to="/signup" className='signup-link'>Join us today</Link>
+        </div>
       </div>
     </div>
     </>
