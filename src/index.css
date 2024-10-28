@@ -9,3 +9,12 @@
     box-sizing: border-box;
     font-family: "Poppins", serif;
 }
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #E3F9FF, #86B1BC);
+}
+  
