@@ -82,6 +82,19 @@ form{
   border-color: #ffd700;
 }
 
+.password-wrapper {
+  width: 100%;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: white;
+}
+
 .login-btn{
   width: 250px;
   background-color: #FEE17E;
@@ -108,4 +121,3 @@ form{
 .signup-link{
   color: white;
 }
-

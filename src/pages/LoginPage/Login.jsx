@@ -6,10 +6,12 @@ import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 import { storeInSession } from '../../components/Session';
 
+
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
 
@@ -65,8 +67,11 @@ const Login = () => {
             <input type="email" placeholder='Enter your email' className='styled-input' onChange={(e) => setEmail(e.target.value)}/>
           </div>
           <div className="input-group">
-            <label className='input-label' style={{ backgroundColor: '#BBD9E0' }}>Password</label>
-            <input type="password" placeholder='Enter your password'className='styled-input' onChange={(e) => setPassword(e.target.value)}/>
+            <label className='input-label' style={{ backgroundColor: '#BBD9E0'}}>Password</label>
+            <div className="password-wrapper">
+              <input type={showPassword ? "text" : "password"} placeholder='Enter your password'className='styled-input' onChange={(e) => setPassword(e.target.value)}/>
+              <i className={`fi ${showPassword ? 'fi-rr-eye' : 'fi-rr-eye-crossed'} password-toggle-icon`} onClick={() => setShowPassword(!showPassword)}></i>
+            </div>
           </div>
           <button type='submit' className='login-btn'>Login</button>
         </form>
