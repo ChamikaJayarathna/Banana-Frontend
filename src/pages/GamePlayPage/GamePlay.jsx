@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Monkey from '../../assets/momkey03.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../../App';
 import './GamePlay.css';
 
 const GamePlay = () => {
+
+  let { userAuth : { access_token }} = useContext(UserContext);
+  
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!access_token){
+      navigate('/login')
+    }
+  },[access_token, navigate]);
+
   return (
     <>
       <div className="game-wrapper">
