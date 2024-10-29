@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Monkey from '../../assets/momkey02.png';
 import { Link, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 import { storeInSession } from '../../components/Session';
+import { UserContext } from '../../App';
 import './Login.css';
 
 
@@ -12,6 +13,9 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+  let { setUserAuth } = useContext(UserContext);
+  
 
   const navigate = useNavigate();
 
@@ -24,6 +28,7 @@ const Login = () => {
 
       if(response.data){
         storeInSession('user', JSON.stringify(response.data));
+        setUserAuth({ access_token: response.data.token });
         navigate('/game-play')
       }
 
@@ -56,30 +61,30 @@ const Login = () => {
 
   return (
     <>
-    <Toaster/>
-    <div className="login-wrapper">
-      <img src={Monkey} alt="image" className='mascot'/>
-      <div className="login-container">
-        <h1>Welcome!</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label className='input-label' style={{ backgroundColor: '#C1DDE5' }}>E-mail Address</label>
-            <input type="email" placeholder='Enter your email' className='styled-input' onChange={(e) => setEmail(e.target.value)}/>
-          </div>
-          <div className="input-group">
-            <label className='input-label' style={{ backgroundColor: '#BBD9E0'}}>Password</label>
-            <div className="password-wrapper">
-              <input type={showPassword ? "text" : "password"} placeholder='Enter your password'className='styled-input' onChange={(e) => setPassword(e.target.value)}/>
-              <i className={`fi ${showPassword ? 'fi-rr-eye' : 'fi-rr-eye-crossed'} password-toggle-icon`} onClick={() => setShowPassword(!showPassword)}></i>
+      <Toaster/>
+      <div className="login-wrapper">
+        <img src={Monkey} alt="image" className='mascot'/>
+        <div className="login-container">
+          <h1>Welcome!</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="input-group">
+              <label className='input-label' style={{ backgroundColor: '#C1DDE5' }}>E-mail Address</label>
+              <input type="email" placeholder='Enter your email' className='styled-input' onChange={(e) => setEmail(e.target.value)}/>
             </div>
+            <div className="input-group">
+              <label className='input-label' style={{ backgroundColor: '#BBD9E0'}}>Password</label>
+              <div className="password-wrapper">
+                <input type={showPassword ? "text" : "password"} placeholder='Enter your password'className='styled-input' onChange={(e) => setPassword(e.target.value)}/>
+                <i className={`fi ${showPassword ? 'fi-rr-eye' : 'fi-rr-eye-crossed'} password-toggle-icon`} onClick={() => setShowPassword(!showPassword)}></i>
+              </div>
+            </div>
+            <button type='submit' className='login-btn'>Login</button>
+          </form>
+          <div className="signup-prompt">
+            Don't have an account? <Link to="/signup" className='signup-link'>Join us today</Link>
           </div>
-          <button type='submit' className='login-btn'>Login</button>
-        </form>
-        <div className="signup-prompt">
-          Don't have an account? <Link to="/signup" className='signup-link'>Join us today</Link>
         </div>
       </div>
-    </div>
     </>
     
   );
