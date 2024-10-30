@@ -3,6 +3,9 @@ import { UserContext } from '../../App';
 import { useNavigate } from 'react-router-dom';
 import LevelComponent from '../../components/LevelComponent/LevelComponent';
 import EassyMonkey from '../../assets/momkey04.png';
+import MediumMonkey from '../../assets/momkey05.png';
+import HardMonkey from '../../assets/momkey06.png';
+import ExpertMonkey from '../../assets/momkey07.png';
 import './LevelPage.css';
 
 const LevelPage = () => {
@@ -19,12 +22,34 @@ const LevelPage = () => {
 
   return (
     <div className="container">
+
       <LevelComponent
         image={EassyMonkey}
         title="Essay"
         timer="Timer: 60s"
         btnName="START"
       />
+
+      <LevelComponent
+        image={MediumMonkey}
+        title="Medium"
+        timer="Timer: 40s"
+        btnName="START"
+      />
+
+      <LevelComponent
+        image={HardMonkey}
+        title="Hard"
+        timer="Timer: 30s"
+        btnName="START"
+      />
+      <LevelComponent
+        image={ExpertMonkey}
+        title="Expert"
+        timer="Timer: 15s"
+        btnName="START"
+      />
+
     </div>
   );
 }

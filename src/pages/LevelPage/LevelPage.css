@@ -1,7 +1,8 @@
 .container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 200px;
     max-width: 800px;
     padding: 20px;
+    margin-top: 80px;
 }
