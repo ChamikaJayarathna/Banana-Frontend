@@ -20,6 +20,10 @@ const LevelPage = () => {
   //   }
   // },[access_token, navigate]);
 
+  const handleStart = (level) => {
+    navigate(`/game/${level}`);
+  } 
+
   return (
     <div className="container">
 
@@ -28,6 +32,7 @@ const LevelPage = () => {
         title="Essay"
         timer="Timer: 60s"
         btnName="START"
+        onStart={() => handleStart('essay')}
       />
 
       <LevelComponent

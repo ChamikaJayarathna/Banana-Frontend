@@ -5,6 +5,7 @@ import SignUp from './pages/SignUpPage/SignUp';
 import Login from './pages/LoginPage/Login';
 import GamePlay from './pages/GamePlayPage/GamePlay';
 import LevelPage from './pages/LevelPage/LevelPage';
+import EssayGame from './components/EssayGame/EssayGame';
 import { lookInSession } from './components/Session';
 
 export const UserContext = createContext({});
@@ -28,6 +29,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/game-play' element={<GamePlay />} />
           <Route path='/level' element={<LevelPage />} />
+          <Route path='/game/essay' element={<EssayGame/>}/>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
