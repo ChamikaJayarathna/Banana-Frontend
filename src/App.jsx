@@ -6,6 +6,9 @@ import Login from './pages/LoginPage/Login';
 import GamePlay from './pages/GamePlayPage/GamePlay';
 import LevelPage from './pages/LevelPage/LevelPage';
 import EssayGame from './components/EssayGame/EssayGame';
+import MediumGame from './components/MediumGame/MediumGame';
+import HardGame from './components/HardGame/HardGame';
+import ExpertGame from './components/ExpertGame/ExpertGame';
 import { lookInSession } from './components/Session';
 
 export const UserContext = createContext({});
@@ -30,6 +33,9 @@ const App = () => {
           <Route path='/game-play' element={<GamePlay />} />
           <Route path='/level' element={<LevelPage />} />
           <Route path='/game/essay' element={<EssayGame/>}/>
+          <Route path='/game/medium' element={<MediumGame/>}/>
+          <Route path='/game/hard' element={<HardGame/>}/>
+          <Route path='/game/expert' element={<ExpertGame/>}/>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
