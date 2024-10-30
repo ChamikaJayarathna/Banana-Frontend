@@ -40,6 +40,7 @@ const LevelPage = () => {
         title="Medium"
         timer="Timer: 40s"
         btnName="START"
+        onStart={() => handleStart('medium')}
       />
 
       <LevelComponent
@@ -47,12 +48,14 @@ const LevelPage = () => {
         title="Hard"
         timer="Timer: 30s"
         btnName="START"
+        onStart={() => handleStart('hard')}
       />
       <LevelComponent
         image={ExpertMonkey}
         title="Expert"
         timer="Timer: 15s"
         btnName="START"
+        onStart={() => handleStart('expert')}
       />
 
     </div>
