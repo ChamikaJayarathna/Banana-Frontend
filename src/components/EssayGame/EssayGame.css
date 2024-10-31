@@ -1,0 +1,118 @@
+.game-level-container {
+    width:1300px;
+    height: 850px;
+    background-color: #e0f7fa;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 20px;
+}
+
+.game-level-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    padding: 10px;
+}
+
+
+.level-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+}
+
+.level-info img {
+    position: absolute;
+    top: -70px; 
+    left: 0;
+    transform: translateX(25%);
+    height: 110px; 
+}
+
+.level-text {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #FEE17E;
+    padding: 8px 50px;
+    border-radius: 10px;
+    color: #D58E56;
+    position: relative;
+    z-index: 0;
+    margin-top: 20px; 
+}
+
+.level-right-container{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.level-timer {
+    font-size: 25px;
+    font-weight: bold;
+    color: #B54D36;
+    padding: 5px 15px;
+    border-radius: 12px;
+    position: relative;
+    z-index: 0;
+    margin-top: 20px;
+}
+
+.monkey-icon-right {
+    height: 170px;
+}
+
+.banana-game, .answer-section {
+    width: 950px;
+    margin: 0 auto;
+}
+
+.banana-game img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: -45px;
+}
+
+.answer-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.answer-section input {
+    padding: 10px 10px;
+    font-size: 1em;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.answer-section input::placeholder {
+    color: #86B1BC;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.next-btn {
+    padding: 8px 40px;
+    width: 130px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #6F9645;
+    background-color: #BFD6A6;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.next-btn:hover {
+    background-color: #b4d98e;
+}
