@@ -64,7 +64,7 @@ const SignUp = () => {
     <>
     <Toaster/>
     <div className="signup-wrapper">
-      <img src={Monkey} alt="image" className='mascot'/>
+      <img src={Monkey} alt="image" className='mascot-monkey'/>
       <div className="signup-container">
         <div className="header-section">
           <h2>Sign Up</h2>

@@ -63,7 +63,7 @@ const Login = () => {
     <>
       <Toaster/>
       <div className="login-wrapper">
-        <img src={Monkey} alt="image" className='mascot'/>
+        <img src={Monkey} alt="image" className='mascot-monkey'/>
         <div className="login-container">
           <h1>Welcome!</h1>
           <form onSubmit={handleSubmit}>
