@@ -51,7 +51,26 @@
     color: white;
 }
 
+.time-up-leaderboard-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background-color: #6F9645;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: background-color 0.3s ease;
+}
+
 .time-up-play-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 30px;
     font-weight: bold;
     color: #650000;
@@ -65,6 +84,10 @@
 
 .time-up-play-button:hover {
     background-color: #fad354;
+}
+
+.time-up-leaderboard-button:hover {
+    background-color: #62962a;
 }
 
 
