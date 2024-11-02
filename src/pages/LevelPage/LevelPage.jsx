@@ -15,11 +15,11 @@ const LevelPage = () => {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if(!access_token) {
-  //     navigate('/login');
-  //   }
-  // },[access_token, navigate]);
+  useEffect(() => {
+    if(!access_token) {
+      navigate('/login');
+    }
+  },[access_token, navigate]);
 
   const handleStart = (level) => {
     navigate(`/game/${level}`);

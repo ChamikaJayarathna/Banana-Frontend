@@ -9,6 +9,7 @@ const EssayGame = () => {
 
   const [question,  setQuestion] = useState('');
   const [solution, setSolution] = useState(0);
+  const [timer, setTimer] = useState(60);
 
   const fetchData = async () => {
 
@@ -29,6 +30,23 @@ const EssayGame = () => {
     fetchData();
   },[]);
 
+  useEffect(() => {
+    if(timer > 0){
+      const countdown = setInterval(() => {
+        setTimer((prevTimer) => prevTimer -1);
+      }, 1000);
+      return () => clearInterval(countdown);
+    } else {
+      toast.error("Time's up!");
+    }
+  },[timer]);
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  }
+
   return (
     <>
       <Toaster/>
@@ -39,7 +57,7 @@ const EssayGame = () => {
             <div className="level-text">Level : 1</div>
           </div>
           <div className="level-right-container">
-            <div className="level-timer">00:30</div>
+            <div className="level-timer">{formatTime(timer)}</div>
             <img src={Monkey02} alt="image" className='monkey-icon-right'/>
           </div>
         </div>
