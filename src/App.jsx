@@ -15,13 +15,13 @@ import { lookInSession } from './components/Session';
 export const UserContext = createContext({});
 
 const App = () => {
-  const [userAuth, setUserAuth] = useState({ access_token: null });
+  const [userAuth, setUserAuth] = useState({ access_token: null});
 
   useEffect(() => {
     let userInSession = lookInSession('user');
     userInSession
       ? setUserAuth(JSON.parse(userInSession))
-      : setUserAuth({ access_token: null });
+      : setUserAuth({ access_token: null});
   }, []);
 
   return (

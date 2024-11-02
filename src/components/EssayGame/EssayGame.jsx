@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import Monkey01 from '../../assets/momkey08.png';
 import Monkey02 from '../../assets/momkey09.png';
 import TimeUp from '../TimeUpCard/TimeUp';
+import { UserContext } from '../../App';
+import { useNavigate } from 'react-router-dom';
 import './EssayGame.css';
 
 const EssayGame = () => {
 
+  let { userAuth : { access_token}} = useContext(UserContext);
+  
   const [question,  setQuestion] = useState('');
   const [solution, setSolution] = useState(0);
+  const [userAnswer, setUserAnswer] = useState('');
   const [timer, setTimer] = useState(60);
   const [isTimeUp, setIsTimeUp] = useState(false);
+  const [score, setScore] = useState(0);
+
+  const navigate = useNavigate();
 
   const fetchData = async () => {
 
@@ -22,11 +30,18 @@ const EssayGame = () => {
 
       setQuestion(question);
       setSolution(solution);
+      console.log('Solution:', solution);
 
     } catch (error) {
       toast.error("Error fetching question data", error);
     }
   }
+
+  useEffect(() => {
+    if(!access_token) {
+      navigate('/login');
+    }
+  },[access_token, navigate]);
 
   useEffect(() => {
     fetchData();
@@ -49,6 +64,42 @@ const EssayGame = () => {
     return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (parseInt(userAnswer) === solution) {
+        toast.success("Answer is correct!");
+        const updatedScore = score + 10;
+
+        try {
+            const response = await axios.put(
+                `${import.meta.env.VITE_SERVER_DOMAIN}/api/score`,
+                { score: updatedScore },
+                {
+                    headers: {
+                        'Authorization': `Bearer ${access_token}`
+                    }
+                }
+            );
+
+            if (response.status === 200) {
+                setScore(updatedScore);
+                fetchData();
+            } else {
+                console.log('Error updating score');
+            }
+
+        } catch (error) {
+            toast.error("Error updating score");
+        }
+    } else {
+        toast.error("Answer is wrong!");
+    }
+
+    setUserAnswer('');
+  };
+
+  
   return (
     <>
       <Toaster/>
@@ -72,8 +123,8 @@ const EssayGame = () => {
         </div>
 
         <div className="answer-section">
-          <input type="text" placeholder='Enter Your Answer Here...'/>
-          <button className='next-btn'>Next</button>
+          <input type="text" placeholder='Enter Your Answer Here...' value={userAnswer} onChange={(e) => setUserAnswer(e.target.value)}/>
+          <button className='next-btn' onClick={handleSubmit}>Next</button>
         </div>
 
       </div>
