@@ -7,6 +7,7 @@ import MediumMonkey from '../../assets/momkey05.png';
 import HardMonkey from '../../assets/momkey06.png';
 import ExpertMonkey from '../../assets/momkey07.png';
 import './LevelPage.css';
+import NavBar from '../../components/NavBar/NavBar';
 
 const LevelPage = () => {
 
@@ -25,40 +26,43 @@ const LevelPage = () => {
   } 
 
   return (
-    <div className="container">
+    <>
+      <NavBar/>
+      <div className="container">
+        
+        <LevelComponent
+          image={EassyMonkey}
+          title="Essay"
+          timer="Timer: 60s"
+          btnName="START"
+          onStart={() => handleStart('essay')}
+        />
 
-      <LevelComponent
-        image={EassyMonkey}
-        title="Essay"
-        timer="Timer: 60s"
-        btnName="START"
-        onStart={() => handleStart('essay')}
-      />
+        <LevelComponent
+          image={MediumMonkey}
+          title="Medium"
+          timer="Timer: 40s"
+          btnName="START"
+          onStart={() => handleStart('medium')}
+        />
 
-      <LevelComponent
-        image={MediumMonkey}
-        title="Medium"
-        timer="Timer: 40s"
-        btnName="START"
-        onStart={() => handleStart('medium')}
-      />
+        <LevelComponent
+          image={HardMonkey}
+          title="Hard"
+          timer="Timer: 30s"
+          btnName="START"
+          onStart={() => handleStart('hard')}
+        />
+        <LevelComponent
+          image={ExpertMonkey}
+          title="Expert"
+          timer="Timer: 15s"
+          btnName="START"
+          onStart={() => handleStart('expert')}
+        />
 
-      <LevelComponent
-        image={HardMonkey}
-        title="Hard"
-        timer="Timer: 30s"
-        btnName="START"
-        onStart={() => handleStart('hard')}
-      />
-      <LevelComponent
-        image={ExpertMonkey}
-        title="Expert"
-        timer="Timer: 15s"
-        btnName="START"
-        onStart={() => handleStart('expert')}
-      />
-
-    </div>
+      </div>
+    </>
   );
 }
 
