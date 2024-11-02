@@ -1,0 +1,74 @@
+.time-up-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.time-up-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #BFD6A6;
+    border-radius: 10px;
+    width: 600px;
+    height: 350px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.time-up-cross-icon{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #650000;
+    background-color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.time-up-card-title {
+    font-size: 50px;
+    color: #650000;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.time-up-card-message {
+    font-size: 18px;
+    color: white;
+}
+
+.time-up-play-button {
+    font-size: 30px;
+    font-weight: bold;
+    color: #650000;
+    background-color: #FEE17E;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.time-up-play-button:hover {
+    background-color: #fad354;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

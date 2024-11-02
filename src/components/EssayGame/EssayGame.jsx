@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './EssayGame.css';
 import toast, { Toaster } from 'react-hot-toast';
 import Monkey01 from '../../assets/momkey08.png';
 import Monkey02 from '../../assets/momkey09.png';
+import TimeUp from '../TimeUpCard/TimeUp';
+import './EssayGame.css';
 
 const EssayGame = () => {
 
   const [question,  setQuestion] = useState('');
   const [solution, setSolution] = useState(0);
   const [timer, setTimer] = useState(60);
+  const [isTimeUp, setIsTimeUp] = useState(false);
 
   const fetchData = async () => {
 
@@ -37,7 +39,7 @@ const EssayGame = () => {
       }, 1000);
       return () => clearInterval(countdown);
     } else {
-      toast.error("Time's up!");
+      setIsTimeUp(true);
     }
   },[timer]);
 
@@ -50,6 +52,9 @@ const EssayGame = () => {
   return (
     <>
       <Toaster/>
+      {isTimeUp && (
+          <TimeUp/>
+      )}
       <div className="game-level-container">
         <div className="game-level-header">
           <div className="level-info">
