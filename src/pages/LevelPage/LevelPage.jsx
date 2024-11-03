@@ -32,7 +32,7 @@ const LevelPage = () => {
         
         <LevelComponent
           image={EassyMonkey}
-          title="Essay"
+          title="Easy"
           timer="Timer: 60s"
           btnName="START"
           onStart={() => handleStart('essay')}
