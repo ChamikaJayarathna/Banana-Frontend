@@ -19,7 +19,7 @@ const TimeUp = () => {
         <h2 className="time-up-card-title">Time's Up!</h2>
         <p className="time-up-card-message">Play this if you wish to continue the Banana game.</p>
         <Link to="" className="time-up-leaderboard-button">Leader Board</Link>
-        <Link to="" className="time-up-play-button">Play</Link>
+        <Link to="/maze-game" className="time-up-play-button">Play</Link>
       </div>
     </div>
   );
