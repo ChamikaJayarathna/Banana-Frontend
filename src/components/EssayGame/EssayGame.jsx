@@ -5,7 +5,7 @@ import Monkey01 from '../../assets/momkey08.png';
 import Monkey02 from '../../assets/momkey09.png';
 import TimeUp from '../TimeUpCard/TimeUp';
 import { UserContext } from '../../App';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './EssayGame.css';
 
 const EssayGame = () => {
@@ -19,6 +19,7 @@ const EssayGame = () => {
   const [isTimeUp, setIsTimeUp] = useState(false);
   const [score, setScore] = useState(0);
 
+  let { level } = useParams();
   const navigate = useNavigate();
 
   const fetchData = async () => {
@@ -69,12 +70,13 @@ const EssayGame = () => {
 
     if (parseInt(userAnswer) === solution) {
         toast.success("Answer is correct!");
-        const updatedScore = score + 10;
+        const points = level === 'easy' ? 5 : level === 'medium' ? 10 : level === 'hard' ? 15 : 20;
+        const updatedScore = score + points;
 
         try {
             const response = await axios.put(
                 `${import.meta.env.VITE_SERVER_DOMAIN}/api/score`,
-                { score: updatedScore },
+                { score: points, level },
                 {
                     headers: {
                         'Authorization': `Bearer ${access_token}`
@@ -91,6 +93,7 @@ const EssayGame = () => {
 
         } catch (error) {
             toast.error("Error updating score");
+            console.error(error);
         }
     } else {
         toast.error("Answer is wrong!");
@@ -99,7 +102,6 @@ const EssayGame = () => {
     setUserAnswer('');
   };
 
-  
   return (
     <>
       <Toaster/>

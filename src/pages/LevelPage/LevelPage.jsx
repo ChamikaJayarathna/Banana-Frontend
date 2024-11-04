@@ -35,7 +35,7 @@ const LevelPage = () => {
           title="Easy"
           timer="Timer: 60s"
           btnName="START"
-          onStart={() => handleStart('essay')}
+          onStart={() => handleStart('easy')}
         />
 
         <LevelComponent
