@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Maze from '../../components/Maze';
 import Player from '../../components/Player';
 import MazeRenderer from '../../components/MazeRenderer';
-import VictoryMessage from '../../components/VictoryMessage';
+import VictoryMessage from '../../components/VictoryMessage/VictoryMessage';
 import './MazeGame.css';
 
 const MazeGame = () => {
