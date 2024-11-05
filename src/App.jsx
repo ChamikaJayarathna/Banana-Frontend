@@ -55,7 +55,7 @@ const App = () => {
           <Route path='/level' element={<LevelPage />} />
           <Route path="/game/:level" element={<GameRouter />} /> 
           <Route path='/profile' element={<ProfilePage/>}/>
-          <Route path='/maze-game' element={<MazeGame/>}/>
+          <Route path='/maze-game/:level' element={<MazeGame />} />
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
