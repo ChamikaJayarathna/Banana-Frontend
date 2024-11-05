@@ -112,7 +112,7 @@ const EssayGame = () => {
         <div className="game-level-header">
           <div className="level-info">
             <img src={Monkey01} alt="image" />
-            <div className="level-text">Level : 1</div>
+            <div className="level-text">Score : {score}</div>
           </div>
           <div className="level-right-container">
             <div className="level-timer">{formatTime(timer)}</div>
