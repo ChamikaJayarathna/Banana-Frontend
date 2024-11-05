@@ -1,18 +1,31 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './VictoryMessage.css';
 
 const VictoryMessage = ({ moves }) => {
 
   let { level } = useParams();
+  const navigate = useNavigate();
+
+  const handleContinue = () => {
+    navigate(`/game/${level}`);
+  }
+
+  const handleCrossClick = () => {
+    navigate('/level');
+  }
 
   return (
-    <div className='Message-Container'>
-      <div className='message'>
-        <h1>Congratulations!</h1>
-        <p>You finished in {moves} moves!</p>
-        <Link to={`/game/${level}`}>Link</Link>
-        {/* <button type='button' onClick={() => window.location.reload()}>Cool!</button> */}
+    <div className="victory-message-overlay">
+      <div className='victory-message-card'>
+        <div className="victory-message-cross-icon" onClick={handleCrossClick}>
+          <i className="fi fi-sr-cross-small"></i>
+        </div>
+        <div className='victory-message'>
+          <h1 className='victory-message-title'>Congratulations!</h1>
+          <p className='victory-message-moves'>You finished in {moves} moves!</p>
+          <button onClick={handleContinue} className='victory-message-btn'>Continue to Banana Game</button>
+        </div>
       </div>
     </div>
   );
