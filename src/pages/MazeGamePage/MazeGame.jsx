@@ -74,14 +74,14 @@ const MazeGame = () => {
 
   return (
     <div id="page">
+
       <div id="view">
         <div id="mazeContainer">
-          <canvas id="mazeCanvas" className='border' ref={canvasRef} width="1100" height="1100"></canvas>
+          <canvas id="mazeCanvas" ref={canvasRef}></canvas>
         </div>
       </div>
 
-      <p id="instructions">Use arrow keys to move the key to the house!</p>
-
+      <p id="instructions">Use arrow keys to move the monkey to the banana!</p>
       {victory && <VictoryMessage moves={moves} />}
     </div>
   );
