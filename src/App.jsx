@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 import Welcome from './pages/WelcomePage/Welcome';
 import SignUp from './pages/SignUpPage/SignUp';
@@ -19,6 +19,11 @@ export const UserContext = createContext({});
 const GameRouter = () => {
 
   const { level } = useParams();
+  const { setGameMode } = useContext(UserContext);
+
+  useEffect(() => {
+    setGameMode(level);
+  },[level, setGameMode])
 
   switch(level) {
     case 'easy':
@@ -37,6 +42,7 @@ const GameRouter = () => {
 
 const App = () => {
   const [userAuth, setUserAuth] = useState({ access_token: null});
+  const [gameMode, setGameMode] = useState(null);
 
   useEffect(() => {
     let userInSession = lookInSession('user');
@@ -46,7 +52,7 @@ const App = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ userAuth, setUserAuth }}>
+    <UserContext.Provider value={{ userAuth, setUserAuth, gameMode, setGameMode }}>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Welcome />} />

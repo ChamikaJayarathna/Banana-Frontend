@@ -1,11 +1,11 @@
 import React from 'react';
 import './LeaderboardCom.css';
 
-const LeaderboardCom = () => {
+const LeaderboardCom = ({ username, score }) => {
   return (
     <div className="leaderboard-component-achievement-item">
-        <span className="leaderboard-component-name">Annie Jhon</span>
-        <span className="leaderboard-component-score">3564</span>
+        <span className="leaderboard-component-name">{username}</span>
+        <span className="leaderboard-component-score">{score}</span>
     </div>
   );
 }

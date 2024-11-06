@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import './NavBar.css';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { gameMode } = useContext(UserContext);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -21,12 +23,14 @@ const NavBar = () => {
           </div>
         )}
         <ul>
-          <li style={{marginTop: "30px"}}><Link to="/level"><i class="fi fi-ss-home"></i> Home</Link></li>
-          <li><Link to="/profile"><i class="fi fi-ss-user"></i> Profile</Link></li>
-          <li><Link to="/leaderboard"><i class="fi fi-ss-trophy-star"></i> Leaderboard</Link></li>
+          <li style={{ marginTop: "30px" }}><Link to="/level"><i className="fi fi-ss-home"></i> Home</Link></li>
+          <li><Link to="/profile"><i className="fi fi-ss-user"></i> Profile</Link></li>
+          {gameMode && (
+            <li><Link to={`/leaderboard?mode=${gameMode}`}><i className="fi fi-ss-trophy-star"></i> Leaderboard</Link></li>
+          )}
         </ul>
         <div className="logout-button">
-          <li><Link to="/logout"><i class="fi fi-br-sign-out-alt"></i> Logout</Link></li>
+          <li><Link to="/logout"><i className="fi fi-br-sign-out-alt"></i> Logout</Link></li>
         </div>
       </div>
     </div>
