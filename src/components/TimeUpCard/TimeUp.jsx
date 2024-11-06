@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { UserContext } from '../../App';
 import './TimeUp.css';
+
 
 const TimeUp = () => {
 
     const navigate = useNavigate();
     let { level } = useParams();
+    const { gameMode } = useContext(UserContext);
 
     const handleCrossClick = () => {
         navigate('/level');
@@ -19,7 +22,7 @@ const TimeUp = () => {
         </div>
         <h2 className="time-up-card-title">Time's Up!</h2>
         <p className="time-up-card-message">Play this if you wish to continue the Banana game.</p>
-        <Link to="" className="time-up-leaderboard-button">Leader Board</Link>
+        <Link to={`/leaderboard?mode=${gameMode}`} className="time-up-leaderboard-button">Leader Board</Link>
         <Link to={`/maze-game/${level}`} className="time-up-play-button">Play</Link>
       </div>
     </div>
