@@ -12,6 +12,7 @@ import ExpertGame from './components/GameModes/ExpertGame';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import { lookInSession } from './components/Session';
 import MazeGame from './pages/MazeGamePage/MazeGame';
+import Leaderboard from './components/Leaderboard/Leaderboard';
 
 export const UserContext = createContext({});
 
@@ -56,6 +57,7 @@ const App = () => {
           <Route path="/game/:level" element={<GameRouter />} /> 
           <Route path='/profile' element={<ProfilePage/>}/>
           <Route path='/maze-game/:level' element={<MazeGame />} />
+          <Route path='/leaderboard' element={<Leaderboard/>}/>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
