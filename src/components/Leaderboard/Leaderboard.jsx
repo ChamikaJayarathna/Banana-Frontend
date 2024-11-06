@@ -1,5 +1,6 @@
 import React from 'react';
 import Monkey from '../../assets/momkey11.png';
+import LeaderboardCom from '../LeaderboardCom/LeaderboardCom';
 import './Leaderboard.css';
 
 const Leaderboard = () => {
@@ -14,6 +15,11 @@ const Leaderboard = () => {
                 <img src={Monkey} alt="image" className='leaderboard-monkey-icon'/>
             </div>
         </div>
+
+        <div className="">
+          <LeaderboardCom/>
+        </div>
+
     </div>
   );
 }

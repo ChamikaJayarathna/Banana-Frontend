@@ -1,0 +1,26 @@
+.leaderboard-component-achievement-item {
+    width: 1200px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #86B1BC, #a5d1dc);
+    border: 2px solid white;
+    box-shadow: -1px 11px 29px -16px rgba(0,0,0,0.75);
+    border-radius: 10px;
+    padding: 10px;
+    gap: 15px;
+}
+
+.leaderboard-component-name {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-left: 300px;
+}
+
+.leaderboard-component-score {
+    font-size: 25px;
+    color: #D4613C;
+    font-weight: bold; 
+    margin-left: 400px;
+}
