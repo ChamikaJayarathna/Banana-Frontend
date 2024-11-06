@@ -1,16 +1,18 @@
 .navbar {
-    position: relative;
+    position: fixed;
+    z-index: 1000;
 }
 
 .navbar-menu-icon {
-    position: absolute;
+    position: fixed; 
     display: flex;
     align-items: center;
     justify-content: center;
     width: 50px;
     height: 50px;
-    top: -70px;
-    left: -500px;
+    top: 30px;     
+    left: 50px;   
+    opacity: 1;
     border-radius: 50%;
     background-color: #650000;
     font-size: 25px;
@@ -154,4 +156,4 @@
 .logout-button li a:hover{
     background-color: #BFD6A6;
     color: #B54D35;
-} 
+}
