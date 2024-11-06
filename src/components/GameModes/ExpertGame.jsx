@@ -9,6 +9,7 @@ import { UserContext } from '../../App';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loader from '../../assets/Loader.json';
 import './GameModes.css';
+import NavBar from '../NavBar/NavBar';
 
 const ExpertGame = () => {
 
@@ -109,6 +110,7 @@ const ExpertGame = () => {
   return (
     <>
       <Toaster />
+      <NavBar/>
       {isTimeUp && (
         <TimeUp />
       )}

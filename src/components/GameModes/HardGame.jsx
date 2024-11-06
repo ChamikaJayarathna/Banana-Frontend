@@ -9,6 +9,7 @@ import { UserContext } from '../../App';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loader from '../../assets/Loader.json';
 import './GameModes.css';
+import NavBar from '../NavBar/NavBar';
 
 const HardGame = () => {
   let { userAuth: { access_token } } = useContext(UserContext);
@@ -104,6 +105,7 @@ const HardGame = () => {
   return (
     <>
       <Toaster />
+      <NavBar/>
       {isTimeUp && <TimeUp />}
       <div className="game-level-container">
         <div className="game-level-header">
