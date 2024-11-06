@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
+import Lottie from 'lottie-react';
 import Monkey01 from '../../assets/momkey08.png';
 import Monkey02 from '../../assets/momkey09.png';
 import TimeUp from '../TimeUpCard/TimeUp';
 import { UserContext } from '../../App';
 import { useNavigate, useParams } from 'react-router-dom';
+import Loader from '../../assets/Loader.json';
 import './EssayGame.css';
 
 const EssayGame = () => {
@@ -18,11 +20,14 @@ const EssayGame = () => {
   const [timer, setTimer] = useState(60);
   const [isTimeUp, setIsTimeUp] = useState(false);
   const [score, setScore] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   let { level } = useParams();
   const navigate = useNavigate();
 
   const fetchData = async () => {
+
+    setLoading(true);
 
     try {
 
@@ -31,10 +36,12 @@ const EssayGame = () => {
 
       setQuestion(question);
       setSolution(solution);
+      setLoading(false);
       console.log('Solution:', solution);
 
     } catch (error) {
       toast.error("Error fetching question data", error);
+      setLoading(false);
     }
   }
 
@@ -121,7 +128,10 @@ const EssayGame = () => {
         </div>
 
         <div className="banana-game">
-          <img src={question} alt="banana-game" />
+          {loading ? 
+            ( <Lottie animationData={Loader} className='banana-game-loader-animation'/> ) :
+            ( <img src={question} alt="banana-game"/> )
+          }
         </div>
 
         <div className="answer-section">

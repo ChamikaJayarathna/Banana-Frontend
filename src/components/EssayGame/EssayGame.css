@@ -77,6 +77,12 @@
     margin-top: -45px;
 }
 
+.banana-game-loader-animation {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+}
+
 .answer-section {
     display: flex;
     align-items: center;
