@@ -7,20 +7,33 @@
     border: 2px solid white;
     box-shadow: -1px 11px 29px -16px rgba(0,0,0,0.75);
     border-radius: 10px;
-    padding: 10px;
-    gap: 15px;
+    padding: 10px 40px;
+}
+
+.leaderboard-component-rank {
+    flex: 1;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    min-width: 100px;
+    margin-left: 60px;
 }
 
 .leaderboard-component-name {
+    flex: 2;
     font-size: 25px;
     font-weight: bold;
     color: #ffffff;
-    margin-left: 300px;
+    text-align: center;
 }
 
 .leaderboard-component-score {
+    flex: 1;
     font-size: 25px;
     color: #D4613C;
-    font-weight: bold; 
-    margin-left: 400px;
+    font-weight: bold;
+    text-align: right;
+    min-width: 100px;
+    margin-right: 200px;
 }

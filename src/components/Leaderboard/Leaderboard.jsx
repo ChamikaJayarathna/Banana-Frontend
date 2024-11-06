@@ -43,6 +43,7 @@ const Leaderboard = () => {
             key={index}
             username={user.username}
             score={user.score}
+            rank={index + 1}
           />
         ))}
       </div>
