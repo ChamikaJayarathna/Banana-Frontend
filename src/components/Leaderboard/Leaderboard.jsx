@@ -16,7 +16,7 @@ const Leaderboard = () => {
             </div>
         </div>
 
-        <div className="">
+        <div className="leaderboard-achievement-list">
           <LeaderboardCom/>
         </div>
 

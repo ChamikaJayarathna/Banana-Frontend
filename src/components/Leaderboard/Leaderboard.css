@@ -16,7 +16,7 @@
     width: 100%;
     height: 110px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 70px;
     background-color: transparent;
     border: 7px solid #86B1BC;
 }
@@ -49,4 +49,10 @@
     width: 200px; 
     height: auto;
     display: block;
+}
+
+.leaderboard-achievement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
