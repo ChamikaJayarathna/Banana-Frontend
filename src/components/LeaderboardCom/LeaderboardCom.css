@@ -9,7 +9,7 @@
     border-radius: 10px;
     padding: 10px 40px;
 }
-
+  
 .leaderboard-component-rank {
     flex: 1;
     font-size: 25px;
@@ -19,7 +19,7 @@
     min-width: 100px;
     margin-left: 60px;
 }
-
+  
 .leaderboard-component-name {
     flex: 2;
     font-size: 25px;
@@ -28,12 +28,23 @@
     text-align: center;
 }
 
+.leaderboard-component-trophy-score {
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+    margin-left: auto;
+}
+
+.leaderboard-component-trophy {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 35px;
+}
+
 .leaderboard-component-score {
-    flex: 1;
     font-size: 25px;
     color: #D4613C;
     font-weight: bold;
-    text-align: right;
-    min-width: 100px;
-    margin-right: 200px;
 }
+  
