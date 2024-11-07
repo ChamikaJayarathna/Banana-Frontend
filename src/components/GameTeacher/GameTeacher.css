@@ -1,0 +1,27 @@
+.game-teacher-container {
+    position: fixed;
+    left: 1450px;
+    bottom: 20px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+  }
+  
+  .game-teacher-popup-image {
+    width: 500px;
+    height: auto;
+    transform: scaleX(-1);
+  }
+  
+  .game-teacher-popup-message {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 150px;
+    font-size: 18px;
+    text-align: center;
+    color: black;
+  }
+  

@@ -10,6 +10,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Loader from '../../assets/Loader.json';
 import './GameModes.css';
 import NavBar from '../NavBar/NavBar';
+import GameTeacher from '../GameTeacher/GameTeacher';
 
 const EssayGame = () => {
 
@@ -114,6 +115,7 @@ const EssayGame = () => {
     <>
       <Toaster/>
       <NavBar/>
+      <GameTeacher/>
       {isTimeUp && (
           <TimeUp/>
       )}
