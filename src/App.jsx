@@ -41,14 +41,14 @@ const GameRouter = () => {
 }
 
 const App = () => {
-  const [userAuth, setUserAuth] = useState({ access_token: null});
+  const [userAuth, setUserAuth] = useState({ access_token: null, _id: null});
   const [gameMode, setGameMode] = useState(null);
 
   useEffect(() => {
     let userInSession = lookInSession('user');
     userInSession
       ? setUserAuth(JSON.parse(userInSession))
-      : setUserAuth({ access_token: null});
+      : setUserAuth({ access_token: null, _id: null});
   }, []);
 
   return (
@@ -61,7 +61,7 @@ const App = () => {
           <Route path='/game-play' element={<GamePlay />} />
           <Route path='/level' element={<LevelPage />} />
           <Route path="/game/:level" element={<GameRouter />} /> 
-          <Route path='/profile' element={<ProfilePage/>}/>
+          <Route path='/profile/:userId' element={<ProfilePage />} />
           <Route path='/maze-game/:level' element={<MazeGame />} />
           <Route path='/leaderboard' element={<Leaderboard/>}/>
         </Routes>

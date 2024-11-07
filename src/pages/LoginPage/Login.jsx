@@ -27,8 +27,15 @@ const Login = () => {
       });
 
       if(response.data){
+
+        const userData = {
+          _id: response.data._id,
+          access_token: response.data.token
+        }
+
         storeInSession('user', JSON.stringify(response.data));
-        setUserAuth({ access_token: response.data.token });
+        // setUserAuth({ access_token: response.data.token });
+        setUserAuth(userData);
         navigate('/game-play')
       }
 

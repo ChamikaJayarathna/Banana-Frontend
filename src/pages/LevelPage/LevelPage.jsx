@@ -13,6 +13,10 @@ const LevelPage = () => {
 
   let { userAuth : { access_token }} = useContext(UserContext);
 
+  console.log(access_token);
+  
+  
+
   const navigate = useNavigate();
 
   // useEffect(() => {

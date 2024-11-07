@@ -5,7 +5,7 @@ import './NavBar.css';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { gameMode } = useContext(UserContext);
+  const { gameMode, userAuth } = useContext(UserContext);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -24,7 +24,12 @@ const NavBar = () => {
         )}
         <ul>
           <li style={{ marginTop: "30px" }}><Link to="/level"><i className="fi fi-ss-home"></i> Home</Link></li>
-          <li><Link to="/profile"><i className="fi fi-ss-user"></i> Profile</Link></li>
+
+          {userAuth._id ? 
+            (<li><Link to={`/profile/${userAuth._id}`}><i className="fi fi-ss-user"></i> Profile</Link></li>) :
+            null
+          }
+
           {gameMode && (
             <li><Link to={`/leaderboard?mode=${gameMode}`}><i className="fi fi-ss-trophy-star"></i> Leaderboard</Link></li>
           )}

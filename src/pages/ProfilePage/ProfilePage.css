@@ -29,6 +29,11 @@
     background-color: #ffffff;
 }
 
+.profile-page-header .banana-game-loader-animation {
+    width: 150px;
+    height: 150px;
+}
+
 .profile-page-info {
     display: flex;
     justify-content: space-between;
