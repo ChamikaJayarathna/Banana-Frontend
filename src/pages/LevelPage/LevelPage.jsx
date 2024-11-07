@@ -12,18 +12,14 @@ import NavBar from '../../components/NavBar/NavBar';
 const LevelPage = () => {
 
   let { userAuth : { access_token }} = useContext(UserContext);
-
-  console.log(access_token);
   
-  
-
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if(!access_token) {
-  //     navigate('/login');
-  //   }
-  // },[access_token, navigate]);
+  useEffect(() => {
+    if(!access_token) {
+      navigate('/login');
+    }
+  },[access_token, navigate]);
 
   const handleStart = (level) => {
     navigate(`/game/${level}`);
