@@ -7,21 +7,29 @@
     flex-direction: column;
     align-items: center;
     pointer-events: none;
-  }
+}
   
-  .game-teacher-popup-image {
-    width: 500px;
-    height: auto;
-    transform: scaleX(-1);
-  }
-  
-  .game-teacher-popup-message {
-    position: absolute;
-    top: 80px;
-    left: 100px;
-    width: 150px;
-    font-size: 18px;
-    text-align: center;
-    color: black;
-  }
-  
+.game-teacher-popup-image {
+  width: 500px;
+  height: auto;
+  transform: scaleX(-1);
+}
+
+.game-teacher-animation {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 50px;
+  left: 100px;
+  z-index: 10;
+}
+
+.game-teacher-popup-message {
+  position: absolute;
+  top: 80px;
+  left: 100px;
+  width: 150px;
+  font-size: 18px;
+  text-align: center;
+  color: black;
+}

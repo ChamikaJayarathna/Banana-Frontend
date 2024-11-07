@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Monkey from '../../assets/momkey12.png';
+import Thinking from '../../assets/Thinking.json';
+import Lottie from 'lottie-react';
 import './GameTeacher.css';
 
 const GameTeacher = ({ shouldStopRandomMessages }) => {
@@ -13,7 +15,9 @@ const GameTeacher = ({ shouldStopRandomMessages }) => {
   ];
 
   const [currentMessage, setCurrentMessage] = useState('');
-  const [messageTimeout, setMessageTimeout] = useState(null);
+  const [showLottie, setShowLottie] = useState(true);
+  const [showMessage, setShowMessage] = useState(false);
+  let intervalId = null;
 
   useEffect(() => {
     const getRandomMessage = () => {
@@ -21,33 +25,43 @@ const GameTeacher = ({ shouldStopRandomMessages }) => {
       return messages[randomIndex];
     };
 
-    const updateMessage = () => {
-      setCurrentMessage(getRandomMessage());
-    };
+    const cycleDisplay = () => {
+      if (!shouldStopRandomMessages) {
+        setCurrentMessage(getRandomMessage());
+        setShowMessage(true);
+        setShowLottie(false);
 
-    const startMessageInterval = () => {
-      if(!shouldStopRandomMessages){
-        const interval = setInterval(() => {
-          updateMessage();
+        setTimeout(() => {
+          setShowMessage(false);
+          setShowLottie(true);
         }, 10000);
-        setMessageTimeout(interval);
       }
     };
 
-    startMessageInterval();
+    if (!shouldStopRandomMessages) {
+      cycleDisplay();
+      intervalId = setInterval(cycleDisplay, 13000);
+    }
 
     return () => {
-      if (messageTimeout) {
-        clearInterval(messageTimeout);
+      if (intervalId) {
+        clearInterval(intervalId);
       }
     };
-  }, [messages, shouldStopRandomMessages]);
+  }, [shouldStopRandomMessages]);
 
   return (
-    <div className="game-teacher-container">
-      <img src={Monkey} alt="game-teacher-image" className="game-teacher-popup-image" />
-      <p className="game-teacher-popup-message">{currentMessage}</p>
-    </div>
+    <>
+      <div className="game-teacher-container">
+        <img src={Monkey} alt="game-teacher-image" className="game-teacher-popup-image" />
+        {showLottie && (
+          <Lottie animationData={Thinking} className="game-teacher-animation" />
+        )}
+        {showMessage && (
+          <p className="game-teacher-popup-message">{currentMessage}</p>
+        )}
+      </div>
+    </>
   );
 };
 
