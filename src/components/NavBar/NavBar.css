@@ -136,7 +136,7 @@
     margin-left: 15px;
 }
 
-.logout-button li a {
+.logout-button li button {
     color: #650000;
     text-decoration: none;
     font-size: 18px;
@@ -147,13 +147,16 @@
     width: 100%;
     padding: 8px 15px;
     border-radius: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.logout-button li a i {
+.logout-button li button i {
     font-size: 18px;
 }
 
-.logout-button li a:hover{
+.logout-button li button:hover{
     background-color: #BFD6A6;
     color: #B54D35;
 }

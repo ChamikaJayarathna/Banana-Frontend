@@ -1,15 +1,24 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
 import './NavBar.css';
+import { removeFromSession } from '../Session';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { gameMode, userAuth } = useContext(UserContext);
+  const { gameMode, userAuth, setUserAuth } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
+  const logOutUser = () => {
+    removeFromSession("user");
+    setUserAuth({ access_token: null });
+    navigate('/login');
+  }
 
   return (
     <div className="navbar">
@@ -35,7 +44,7 @@ const NavBar = () => {
           )}
         </ul>
         <div className="logout-button">
-          <li><Link to="/logout"><i className="fi fi-br-sign-out-alt"></i> Logout</Link></li>
+          <li><button onClick={logOutUser}><i className="fi fi-br-sign-out-alt"></i> Logout</button></li>
         </div>
       </div>
     </div>
