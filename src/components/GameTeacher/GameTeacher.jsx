@@ -50,18 +50,24 @@ const GameTeacher = ({ shouldStopRandomMessages }) => {
     };
   }, [shouldStopRandomMessages]);
 
-  return (
-    <>
+  if (shouldStopRandomMessages) {
+    return (
       <div className="game-teacher-container">
         <img src={Monkey} alt="game-teacher-image" className="game-teacher-popup-image" />
-        {showLottie && (
-          <Lottie animationData={Thinking} className="game-teacher-animation" />
-        )}
-        {showMessage && (
-          <p className="game-teacher-popup-message">{currentMessage}</p>
-        )}
       </div>
-    </>
+    );
+  }
+
+  return (
+    <div className="game-teacher-container">
+      <img src={Monkey} alt="game-teacher-image" className="game-teacher-popup-image" />
+      {showLottie && (
+        <Lottie animationData={Thinking} className="game-teacher-animation" />
+      )}
+      {showMessage && (
+        <p className="game-teacher-popup-message">{currentMessage}</p>
+      )}
+    </div>
   );
 };
 
