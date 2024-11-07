@@ -24,7 +24,7 @@ const GameTeacher = () => {
 
     const messageInterval = setInterval(() => {
       setCurrentMessage(getRandomMessage());
-    }, 8000);
+    }, 15000);
 
     return () => clearInterval(messageInterval);
   }, [messages]);
