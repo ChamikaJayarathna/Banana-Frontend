@@ -3,7 +3,6 @@ import Monkey from '../../assets/momkey12.png';
 import './GameTeacher.css';
 
 const GameTeacher = () => {
-
   const messages = [
     'Hello there!',
     'Welcome back!',
@@ -17,18 +16,23 @@ const GameTeacher = () => {
 
   useEffect(() => {
     const getRandomMessage = () => {
-        const randomIndex = Math.floor(Math.random() * messages.length);
-        return messages[randomIndex];
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      return messages[randomIndex];
     };
 
     setCurrentMessage(getRandomMessage());
 
-  },[]);
+    const messageInterval = setInterval(() => {
+      setCurrentMessage(getRandomMessage());
+    }, 8000);
+
+    return () => clearInterval(messageInterval);
+  }, [messages]);
 
   return (
     <div className="game-teacher-container">
-        <img src={Monkey} alt="game-teachet-image" className='game-teacher-popup-image'/>
-        <p className='game-teacher-popup-message'>{currentMessage}</p>
+      <img src={Monkey} alt="game-teacher-image" className='game-teacher-popup-image' />
+      <p className='game-teacher-popup-message'>{currentMessage}</p>
     </div>
   );
 }
