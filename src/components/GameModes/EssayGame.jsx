@@ -115,7 +115,7 @@ const EssayGame = () => {
     <>
       <Toaster/>
       <NavBar/>
-      <GameTeacher/>
+      <GameTeacher shouldStopRandomMessages={isTimeUp}/>
       {isTimeUp && (
           <TimeUp/>
       )}

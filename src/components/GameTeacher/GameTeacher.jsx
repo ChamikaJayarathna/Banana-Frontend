@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Monkey from '../../assets/momkey12.png';
 import './GameTeacher.css';
 
-const GameTeacher = () => {
+const GameTeacher = ({ shouldStopRandomMessages }) => {
   const messages = [
     'Hello there!',
     'Welcome back!',
@@ -23,18 +23,22 @@ const GameTeacher = () => {
     setCurrentMessage(getRandomMessage());
 
     const messageInterval = setInterval(() => {
-      setCurrentMessage(getRandomMessage());
+      if (!shouldStopRandomMessages) {
+        setCurrentMessage(getRandomMessage());
+      } else {
+        clearInterval(messageInterval);
+      }
     }, 15000);
 
     return () => clearInterval(messageInterval);
-  }, [messages]);
+  }, [messages, shouldStopRandomMessages]);
 
   return (
     <div className="game-teacher-container">
-      <img src={Monkey} alt="game-teacher-image" className='game-teacher-popup-image' />
-      <p className='game-teacher-popup-message'>{currentMessage}</p>
+      <img src={Monkey} alt="game-teacher-image" className="game-teacher-popup-image" />
+      <p className="game-teacher-popup-message">{currentMessage}</p>
     </div>
   );
-}
+};
 
 export default GameTeacher;
