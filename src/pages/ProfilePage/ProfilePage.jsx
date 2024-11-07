@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import Lottie from 'lottie-react';
 import Loader from '../../assets/Loader.json';
 import axios from 'axios';
-import './ProfilePage.css';
 import { UserContext } from '../../App';
 import { useParams } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import NavBar from '../../components/NavBar/NavBar';
+import './ProfilePage.css';
 
 const ProfilePage = () => {
   const { userAuth: { access_token } } = useContext(UserContext);
@@ -44,6 +45,7 @@ const ProfilePage = () => {
   return (
     <>
       <Toaster/>
+      <NavBar/>
       {loading ? (
         <Lottie animationData={Loader} className='banana-game-loader-animation' />
       ) : user ? (
