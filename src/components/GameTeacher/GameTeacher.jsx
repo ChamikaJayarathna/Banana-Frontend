@@ -13,6 +13,7 @@ const GameTeacher = ({ shouldStopRandomMessages }) => {
   ];
 
   const [currentMessage, setCurrentMessage] = useState('');
+  const [messageTimeout, setMessageTimeout] = useState(null);
 
   useEffect(() => {
     const getRandomMessage = () => {
@@ -20,17 +21,26 @@ const GameTeacher = ({ shouldStopRandomMessages }) => {
       return messages[randomIndex];
     };
 
-    setCurrentMessage(getRandomMessage());
+    const updateMessage = () => {
+      setCurrentMessage(getRandomMessage());
+    };
 
-    const messageInterval = setInterval(() => {
-      if (!shouldStopRandomMessages) {
-        setCurrentMessage(getRandomMessage());
-      } else {
-        clearInterval(messageInterval);
+    const startMessageInterval = () => {
+      if(!shouldStopRandomMessages){
+        const interval = setInterval(() => {
+          updateMessage();
+        }, 10000);
+        setMessageTimeout(interval);
       }
-    }, 15000);
+    };
 
-    return () => clearInterval(messageInterval);
+    startMessageInterval();
+
+    return () => {
+      if (messageTimeout) {
+        clearInterval(messageTimeout);
+      }
+    };
   }, [messages, shouldStopRandomMessages]);
 
   return (
