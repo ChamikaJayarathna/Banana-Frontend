@@ -4,12 +4,12 @@ import './GameTeacher.css';
 
 const GameTeacher = ({ shouldStopRandomMessages }) => {
   const messages = [
-    'Hello there!',
-    'Welcome back!',
-    'Hope you have a great day!',
-    'You are doing awesome!',
-    'Keep up the good work!',
-    'Remember to stay positive!',
+    "Try using add or subtract to find the answer — it's simpler!",
+    "Skip (*) and (/) — stick to (+) and (-), it's more fun!",
+    'Try solving vertically',
+    'Solve the lines with the fewest bananas for a quick win!',
+    'Keep an eye on the timer!',
+    'Stay cool, no need to sweat it! 🍌',
   ];
 
   const [currentMessage, setCurrentMessage] = useState('');
