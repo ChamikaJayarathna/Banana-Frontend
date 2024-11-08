@@ -61,26 +61,16 @@ const ProfilePage = () => {
               </div>
               <div className="profile-page-level-scores">
                 <h3 className="profile-page-level-title">Highest Scores</h3>
-                <div className="profile-page-level-row">
-                  <div className="profile-page-level-score-card">
-                    <h3 className='profile-page-level-score-card-title'>Easy</h3>
-                    <p className='profile-page-level-score-card-score'>Score: {user.levelScores.easy}</p>
-                  </div>
-                  <div className="profile-page-level-score-card">
-                    <h3 className='profile-page-level-score-card-title'>Medium</h3>
-                    <p className='profile-page-level-score-card-score'>Score: {user.levelScores.medium}</p>
-                  </div>
+
+                <div className='profile-page-level-grid'>
+                  {Object.entries(user?.levelScores || {}).map(([level, score]) => (
+                    <div key={level} className="profile-page-level-score-card">
+                      <h3 className="profile-page-level-score-card-title">{level}</h3>
+                      <p className="profile-page-level-score-card-score">Score: {score}</p>
+                    </div>
+                  ))}
                 </div>
-                <div className="profile-page-level-row">
-                  <div className="profile-page-level-score-card">
-                    <h3 className='profile-page-level-score-card-title'>Hard</h3>
-                    <p className='profile-page-level-score-card-score'>Score: {user.levelScores.hard}</p>
-                  </div>
-                  <div className="profile-page-level-score-card">
-                    <h3 className='profile-page-level-score-card-title'>Expert</h3>
-                    <p className='profile-page-level-score-card-score'>Score: {user.levelScores.expert}</p>
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>
