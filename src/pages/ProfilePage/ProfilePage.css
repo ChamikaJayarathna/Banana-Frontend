@@ -1,10 +1,10 @@
 .profile-page-container {
-    width: 750px;
+    width: 550px;
     margin: 0 auto;
     padding: 2rem;
     background-color: #BFD6A6;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: -4px 11px 17px -10px rgba(0,0,0,0.75);
 }
 
 .profile-page-content {
@@ -19,7 +19,7 @@
 .profile-page-header {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 .profile-page-header .profile-page-picture {
@@ -36,24 +36,16 @@
 
 .profile-page-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 0;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .profile-page-username {
-    font-size: 1rem;
-    color: #B54D36;
-    text-align: left;
-    margin-left: 90px;
-}
-
-.profile-page-email {
-    font-size: 1rem;
-    color: #B54D36;
-    text-align: right;
-    margin-right: 90px;
+    font-size: 45px;
+    text-transform: capitalize;
+    color: white;
+    text-align: center;
 }
 
 .profile-page-level-scores {
@@ -75,7 +67,7 @@
 }
 
 .profile-page-level-score-card {
-    background-color: #FEE17E;
+    background-color: #6F9645;
     border-radius: 8px;
     padding: 1.2rem;
     text-align: center;
@@ -88,7 +80,7 @@
 }
 
 .profile-page-level-score-card .profile-page-level-score-card-title {
-    color: #D58E56;
+    color: white;
     font-size: 25px;
     font-weight: bold;
     text-transform: capitalize;

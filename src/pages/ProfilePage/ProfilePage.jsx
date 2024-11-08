@@ -56,8 +56,7 @@ const ProfilePage = () => {
                 <img src={user.profile_img} alt="profile" className="profile-page-picture" />
               </div>
               <div className="profile-page-info">
-                <p className='profile-page-username'><i className="fi fi-ss-user"></i>{user.username}</p>
-                <p className='profile-page-email'><i className="fi fi-ss-envelope"></i>{user.email}</p>
+                <p className='profile-page-username'>{user.username}</p>
               </div>
               <div className="profile-page-level-scores">
                 <h3 className="profile-page-level-title">Highest Scores</h3>
