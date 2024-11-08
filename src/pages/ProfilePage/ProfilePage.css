@@ -1,0 +1,106 @@
+.profile-page-container {
+    width: 550px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #BFD6A6;
+    border-radius: 12px;
+    box-shadow: -4px 11px 17px -10px rgba(0,0,0,0.75);
+}
+
+.profile-page-content {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-page-card {
+    width: 100%;
+}
+
+.profile-page-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.profile-page-header .profile-page-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: white solid 2px;
+}
+
+.profile-page-header .banana-game-loader-animation {
+    width: 150px;
+    height: 150px;
+}
+
+.profile-page-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-page-username {
+    font-size: 45px;
+    text-transform: capitalize;
+    color: white;
+    text-align: center;
+}
+
+.profile-page-level-scores {
+    text-align: center;
+}
+
+.profile-page-level-title {
+    font-size: 1.8rem;
+    color: #6F9645;
+    margin-bottom: 1.5rem;
+}
+
+.profile-page-level-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profile-page-level-score-card {
+    background-color: #6F9645;
+    border-radius: 8px;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.profile-page-level-score-card:hover {
+    transform: translateY(-5px);
+}
+
+.profile-page-level-score-card .profile-page-level-score-card-title {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+}
+
+.profile-page-level-score-card .profile-page-level-score-card-score {
+    color: white;
+    font-size: 20px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .profile-page-container {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .profile-page-level-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}

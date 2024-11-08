@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
+import Welcome from './pages/WelcomePage/Welcome';
+import SignUp from './pages/SignUpPage/SignUp';
+import Login from './pages/LoginPage/Login';
+import GamePlay from './pages/GamePlayPage/GamePlay';
+import LevelPage from './pages/LevelPage/LevelPage';
+import EssayGame from './components/GameModes/EssayGame';
+import MediumGame from './components/GameModes/MediumGame';
+import HardGame from './components/GameModes/HardGame';
+import ExpertGame from './components/GameModes/ExpertGame';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
+import { lookInSession } from './components/Session';
+import MazeGame from './pages/MazeGamePage/MazeGame';
+import Leaderboard from './components/Leaderboard/Leaderboard';
 
-function App() {
-  const [count, setCount] = useState(0)
+export const UserContext = createContext({});
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+const GameRouter = () => {
+
+  const { level } = useParams();
+  const { setGameMode } = useContext(UserContext);
+
+  useEffect(() => {
+    setGameMode(level);
+  },[level, setGameMode])
+
+  switch(level) {
+    case 'easy':
+      return <EssayGame />;
+    case 'medium':
+      return <MediumGame />;
+    case 'hard':
+      return <HardGame />;
+    case 'expert':
+      return <ExpertGame />;
+    default:
+      return <div>Level not found</div>;
+  }
+
 }
 
-export default App
+const App = () => {
+  const [userAuth, setUserAuth] = useState({ access_token: null, _id: null});
+  const [gameMode, setGameMode] = useState(null);
+
+  useEffect(() => {
+    let userInSession = lookInSession('user');
+    userInSession
+      ? setUserAuth(JSON.parse(userInSession))
+      : setUserAuth({ access_token: null, _id: null});
+  }, []);
+
+  return (
+    <UserContext.Provider value={{ userAuth, setUserAuth, gameMode, setGameMode }}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Welcome />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/game-play' element={<GamePlay />} />
+          <Route path='/level' element={<LevelPage />} />
+          <Route path="/game/:level" element={<GameRouter />} /> 
+          <Route path='/profile/:userId' element={<ProfilePage />} />
+          <Route path='/maze-game/:level' element={<MazeGame />} />
+          <Route path='/leaderboard' element={<Leaderboard/>}/>
+        </Routes>
+      </BrowserRouter>
+    </UserContext.Provider>
+  );
+};
+
+export default App;
