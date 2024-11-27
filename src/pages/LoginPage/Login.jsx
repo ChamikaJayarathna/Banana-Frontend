@@ -86,6 +86,7 @@ const Login = () => {
               </div>
             </div>
             <button type='submit' className='login-btn'>Login</button>
+            <Link to="/forgot-password" className='forgot-password-link'>Forgot Password?</Link>
           </form>
           <div className="signup-prompt">
             Don't have an account? <Link to="/signup" className='signup-link'>Join us today</Link>

@@ -13,6 +13,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import { lookInSession } from './components/Session';
 import MazeGame from './pages/MazeGamePage/MazeGame';
 import Leaderboard from './components/Leaderboard/Leaderboard';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 
 export const UserContext = createContext({});
 
@@ -58,6 +59,7 @@ const App = () => {
           <Route path='/' element={<Welcome />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/forgot-password' element={<ForgotPassword/>} />
           <Route path='/game-play' element={<GamePlay />} />
           <Route path='/level' element={<LevelPage />} />
           <Route path="/game/:level" element={<GameRouter />} /> 
