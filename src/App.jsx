@@ -14,6 +14,7 @@ import { lookInSession } from './components/Session';
 import MazeGame from './pages/MazeGamePage/MazeGame';
 import Leaderboard from './components/Leaderboard/Leaderboard';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+import ResetPassword from './components/ResetPassword/ResetPassword';
 
 export const UserContext = createContext({});
 
@@ -60,6 +61,7 @@ const App = () => {
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<Login />} />
           <Route path='/forgot-password' element={<ForgotPassword/>} />
+          <Route path='/reset-password' element={<ResetPassword/>} />
           <Route path='/game-play' element={<GamePlay />} />
           <Route path='/level' element={<LevelPage />} />
           <Route path="/game/:level" element={<GameRouter />} /> 
