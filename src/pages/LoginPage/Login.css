@@ -104,6 +104,10 @@ form{
   transform: scale(1.05);
 }
 
+.forgot-password-link{
+  color: #ffffff;
+}
+
 .signup-prompt{
   margin-top: 2rem;
   color: white;
